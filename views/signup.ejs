@@ -1,0 +1,160 @@
+<!-- @format -->
+
+<%- include('./shared/header.ejs') %>
+
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1><span class="fa fa-sign-in"></span> Signup</h1>
+
+    <!-- LOGIN FORM -->
+    <form action="/ejs/auth/signUp" method="post">
+       <% if (tokenError !== '') { %>
+           <div class="form-group">
+            <p>
+              <%= tokenError %>
+            </p>
+          </div>
+         <% } %>
+         <% if (signUpError !== '') { %>
+           <div class="form-group">
+            <p>
+              <%= signUpError %>
+            </p>
+          </div>
+         <% } %>
+         <% if (sendEmail !== '') { %>
+           <div class="form-group">
+            <p>
+              <%= sendEmail %>
+            </p>
+          </div>
+         <% } %>
+        
+      <div class="form-group">
+        <label>firstName</label>
+        <input
+        value="<%= oldData?.firstName%>"
+          type="text"
+          class="form-control"
+          name="firstName"
+          placeholder="Your First Name"
+          required />
+
+          <% if (validationErrors?.includes('firstName')) { %>
+           <div class="form-group">
+            <p>
+              <%= "please Enter Valid firstName" %>
+            </p>
+          </div>
+         <% } %>
+         
+      </div>
+
+      <div class="form-group">
+        <label>lastName</label>
+        <input
+        value="<%= oldData?.lastName%>"
+          type="text"
+          class="form-control"
+          name="lastName"
+          placeholder="Your Last Name"
+          required />
+          <% if (validationErrors?.includes('lastName')) { %>
+           <div class="form-group">
+            <p>
+              <%= "please Enter Valid lastName" %>
+            </p>
+          </div>
+         <% } %>
+      </div>
+      <div class="form-group">
+        <label>email</label>
+        <input
+        value="<%= oldData?.email%>"
+          type="email"
+          class="form-control"
+          name="email"
+          placeholder=" Please enter Your Email "
+          required 
+          />
+          <% if (validationErrors?.includes('email')) { %>
+           <div class="form-group">
+            <p>
+              <%= "please Enter Valid email" %>
+            </p>
+          </div>
+         <% } %>
+         <% if (emailError !== '') { %>
+           <div class="form-group">
+            <p>
+              <%= emailError %>
+            </p>
+          </div>
+         <% } %>
+      </div>
+      <div class="form-group">
+        <label>gender</label>
+        <input
+        value="<%= oldData?.gender%>"
+          type="text"
+          class="form-control"
+          name="gender"
+          placeholder="male or female"
+           />
+           <% if (validationErrors?.includes('gender')) { %>
+           <div class="form-group">
+            <p>
+              <%= "male or female Only" %>
+            </p>
+          </div>
+         <% } %>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          placeholder="Enter Your password"
+          required />
+          <% if (validationErrors?.includes('firstName')) { %>
+           <div class="form-group">
+            <p>
+              <%= "please Enter Valid Password "%>
+            </p>
+          </div>
+         <% } %>
+      </div>
+      <div class="form-group">
+        <label>confirmPassword</label>
+        <input
+          type="password"
+          class="form-control"
+          name="confirmPassword"
+          placeholder="Confirm Your Password" 
+          required />
+          <% if (validationErrors?.includes('confirmPassword')) { %>
+           <div class="form-group">
+            <p>
+              <%= "confirmPassword Does Not Match Password" %>
+            </p>
+          </div>
+         <% } %>
+      </div>
+
+      <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+    </form>
+
+    <hr />
+
+    <p>Already have an account? <a href="/ejs/auth/getlogin">Login</a></p>
+    <p>Or go <a href="/">home</a>.</p>
+
+    <div class="text-center">
+      <p>Made Bye <a href="https://www.facebook.com/Aboadelf16/">Dola</a>.</p>
+      <p>Contact me <a href="wa.link/x2cc69">WhatsUp</a>.</p>
+    </div>
+
+    <%- include('./shared/footer.ejs') %>
+  </div>
+</div>

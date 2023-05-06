@@ -1,0 +1,71 @@
+<%- include('./shared/header.ejs') %>
+
+
+
+<div class="container">
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1><span class="fa fa-sign-in"></span> Login</h1>
+
+   
+
+    <!-- LOGIN FORM -->
+    <form action="/ejs/auth/login" method="post">
+        <% if (loginError !== '') { %>
+           <div class="form-group">
+            <p>
+              <%= loginError %>
+            </p>
+          </div>
+         <% } %>
+
+          <% if (authError !== '') { %>
+           <div class="form-group">
+            <p>
+              <%= authError %>
+            </p>
+          </div>
+         <% } %>
+         
+
+      
+         <div class="form-group">
+            <label>email</label>
+            <input type="email" class="form-control" name="email" placeholder="Please Enter Your Email "required>
+        </div>
+        <% if (emailError !== '') { %>
+           <div class="form-group">
+            <p>
+              <%= emailError %>
+            </p>
+          </div>
+         <% } %>
+       
+        <div class="form-group">
+            <label>password</label>
+            <input type="password" class="form-control" name="password" placeholder=" Please Enter Your password" required>
+        </div>
+        <% if (passwordError !== '') { %>
+           <div class="form-group">
+            <p>
+              <%= passwordError %>
+            </p>
+          </div>
+         <% } %>
+
+        <button type="submit" class="btn btn-warning btn-lg">Sign In</button> 
+    </form>
+
+    <hr>
+
+    <p>Need an account? <a href="/ejs/auth/getSignUp">Signup</a></p>
+    <p>Or go <a href="/">home</a>.</p>
+
+    <div class="text-center">
+        <p>Made By <a href="https://www.facebook.com/Aboadelf16/">Dola</a>.</p>
+        <p>Contact Me <a href="wa.link/x2cc69">WhatsUp</a>.</p>
+    </div>
+
+
+
+<%- include('./shared/footer.ejs') %>
